@@ -1,0 +1,142 @@
+/* ---------- GGI Banner ----------
+   No media queries: layout comes from Bootstrap's grid,
+   and sizes scale fluidly with clamp(). */
+
+.ggi-banner {
+  --ggi-green: #0F2C59;
+  --ggi-green-light: #00A86B;
+  --ggi-gold: #D4AF37;
+  --ggi-paper: #F8F9FA;
+
+  padding: clamp(3rem, 8vw, 6rem) 0;
+  background-color: var(--ggi-green);
+  /* Replace with a real photo later:
+     background-image: linear-gradient(rgba(15,61,46,.85), rgba(15,61,46,.85)), url("/images/banner.jpg");
+     background-size: cover; background-position: center; */
+  color: var(--ggi-paper);
+}
+
+/* ---------- Left side ---------- */
+
+.ggi-banner__tag {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--ggi-gold);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ggi-gold);
+}
+
+.ggi-banner__title {
+  margin-bottom: 1.25rem;
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  max-width: 18ch;
+}
+
+.ggi-banner__text {
+  margin-bottom: 2rem;
+  max-width: 52ch;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.65;
+  color: rgba(251, 250, 246, 0.82);
+}
+
+/* ---------- Buttons ---------- */
+
+.ggi-btn {
+    text-decoration: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ggi-btn--gold {
+  background-color: var(--ggi-gold);
+  border-color: var(--ggi-gold);
+  color: var(--ggi-green);
+}
+
+.ggi-btn--gold:hover,
+.ggi-btn--gold:focus-visible {
+  background-color: #00A86B;
+  border-color: #00A86B;
+  color: var(--ggi-paper);
+}
+
+.ggi-btn--outline {
+  background-color: transparent;
+  border-color: rgba(251, 250, 246, 0.5);
+  color: var(--ggi-paper);
+}
+
+.ggi-btn--outline:hover,
+.ggi-btn--outline:focus-visible {
+  background-color: var(--ggi-paper);
+  border-color: var(--ggi-paper);
+  color: var(--ggi-green);
+}
+
+.ggi-btn:focus-visible {
+  outline: 2px solid var(--ggi-gold);
+  outline-offset: 3px;
+}
+
+/* ---------- Right side card ---------- */
+
+.ggi-banner__card {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background-color: var(--ggi-green-light);
+  border: 1px solid rgba(251, 250, 246, 0.14);
+  border-radius: 12px;
+}
+
+.ggi-banner__card-title {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.ggi-banner__item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(251, 250, 246, 0.14);
+}
+
+.ggi-banner__item:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.ggi-banner__item:last-child {
+  padding-bottom: 0;
+}
+
+.ggi-banner__dot {
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  margin-top: 0.45rem;
+  background-color: var(--ggi-gold);
+  border-radius: 50%;
+}
+
+.ggi-banner__item-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.ggi-banner__item-text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(251, 250, 246, 0.78);
+}

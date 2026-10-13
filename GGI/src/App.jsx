@@ -1,20 +1,17 @@
 import react, { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MainHeader from "./Layouts/MainLayouts/Header/MainHeader";
+
 import Home from "./Pages/Home/Home";
+import MainLayout from "./Layouts/MainLayouts/MainLayout";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<MainHeader />}>
+        <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
         </Route>
 
-     
-
-      
-      
       </Routes>
     </BrowserRouter>
   );

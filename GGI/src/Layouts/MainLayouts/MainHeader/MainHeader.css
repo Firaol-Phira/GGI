@@ -2,11 +2,12 @@
 
 .main-header {
   transition: all 0.3s ease-in-out;
+  background-color:#F8F9FA ;
 }
 
 .main-header .navbar-brand {
   letter-spacing: 0.5px;
-  background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+  background: linear-gradient(135deg, #0F2C59, #0F2C59);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -16,8 +17,20 @@
 }
 
 .main-header .nav-link:hover {
-  color: #0d6efd !important;
+  color: #0F2C59 !important;
   background-color: rgba(13, 110, 253, 0.05);
   transform: translateY(-1px);
 }
 
+.navbar-brand {color:#1A202C ;}
+
+.btn{
+    color:#F8F9FA !important ;
+    background-color: #1A202C !important;
+}
+
+.textlink{
+      color: #0F2C59 !important;
+      background-color: #F8F9FA;
+      
+}

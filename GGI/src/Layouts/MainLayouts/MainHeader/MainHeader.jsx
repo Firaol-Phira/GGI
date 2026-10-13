@@ -34,11 +34,11 @@ function MainHeader() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="main-header sticky-top shadow-sm bg-white">
+    <header className="main-header sticky-top shadow-sm ">
       <nav className="navbar navbar-expand-lg navbar-light py-3">
         <div className="container">
           {/* Logo / Brand */}
-          <Link to="/" className="navbar-brand fw-bold fs-3 text-primary">
+          <Link to="/" className="navbar-brand fw-bold fs-3 ">
             GGI
           </Link>
 
@@ -70,7 +70,7 @@ function MainHeader() {
                       to={link.href}
                       className={`nav-link px-3 rounded-pill transition-all ${
                         active
-                          ? "active text-primary fw-semibold bg-light"
+                          ? "active textlink fw-semibold bg-light"
                           : "text-dark"
                       }`}
                       aria-current={active ? "page" : undefined}
@@ -85,7 +85,7 @@ function MainHeader() {
               <li className="nav-item ms-lg-3 mt-2 mt-lg-0">
                 <Link
                   to="/member"
-                  className="btn btn-primary rounded-pill px-4 shadow-sm"
+                  className="btn  rounded-pill px-4 shadow-sm"
                 >
                   Member Portal
                 </Link>
