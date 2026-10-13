@@ -1,0 +1,32 @@
+/* Main Header Custom Enhancements over Bootstrap 5 */
+
+.main-header {
+  transition: all 0.3s ease-in-out;
+}
+
+.main-header .navbar-brand {
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main-header .nav-link {
+  transition: all 0.2s ease-in-out;
+}
+
+.main-header .nav-link:hover {
+  color: #0d6efd !important;
+  background-color: rgba(13, 110, 253, 0.05);
+  transform: translateY(-1px);
+}
+
+/* Smooth transition when mobile menu expands */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-top: 1px solid #dee2e6;
+    margin-top: 0.75rem;
+  }
+}
