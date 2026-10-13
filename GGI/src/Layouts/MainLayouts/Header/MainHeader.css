@@ -21,12 +21,3 @@
   transform: translateY(-1px);
 }
 
-/* Smooth transition when mobile menu expands */
-@media (max-width: 991.98px) {
-  .navbar-collapse {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-top: 1px solid #dee2e6;
-    margin-top: 0.75rem;
-  }
-}
