@@ -35,10 +35,10 @@ const HIGHLIGHTS = [
             </p>
 
             <div className="d-flex flex-wrap gap-3">
-              <Link href="/register" className=" ggi-btn ggi-btn--gold">
+              <Link href="/Register" className=" ggi-btn ggi-btn--gold">
                 Join now
               </Link>
-              <Link href="/about" className=" ggi-btn ggi-btn--outline">
+              <Link to="/About" className=" ggi-btn ggi-btn--outline">
                 Learn more
               </Link>
             </div>

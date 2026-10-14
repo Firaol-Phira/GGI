@@ -86,7 +86,7 @@ function CorePillars() {
             </div>
             <div className="col-lg-4 text-lg-end">
               <Link
-                to="/about"
+                to="/About"
                 className=" btn-gold-action px-4 py-3 fw-bold rounded-3 shadow-sm text-decoration-none d-inline-block"
               >
                 Learn More About GGI

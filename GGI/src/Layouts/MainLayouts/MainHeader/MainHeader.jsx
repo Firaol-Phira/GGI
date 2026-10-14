@@ -4,7 +4,7 @@ import "./MainHeader.css";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/About" },
   { label: "Programs", href: "/programs" },
   { label: "News", href: "/news" },
   { label: "Gallery", href: "/gallery" },

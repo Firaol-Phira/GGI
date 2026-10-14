@@ -45,6 +45,7 @@ function NewsSection() {
   return (
     <section className="news-announcements-section py-5">
       <div className="container py-4">
+        
         {/* Section Header */}
         <div className="d-flex flex-wrap align-items-end justify-content-between mb-4 gap-3">
           <div>
@@ -73,9 +74,7 @@ function NewsSection() {
                 <div>
                   {/* Category Badge & Date */}
                   <div className="d-flex align-items-center justify-content-between mb-3">
-                    <span
-                      className={`badge news-badge ${item.badgeColor} rounded-pill px-3 py-2`}
-                    >
+                    <span className={`badge news-badge ${item.badgeColor} rounded-pill px-3 py-2`}>
                       {item.category}
                     </span>
                   </div>
@@ -85,7 +84,9 @@ function NewsSection() {
                     {item.date}
                   </p>
 
-                  <h5 className="news-card-title fw-bold mb-3">{item.title}</h5>
+                  <h5 className="news-card-title fw-bold mb-3">
+                    {item.title}
+                  </h5>
 
                   <p className="news-card-summary text-muted mb-4">
                     {item.summary}
@@ -105,6 +106,11 @@ function NewsSection() {
             </div>
           ))}
         </div>
+
+      </div>
+
+      <div>
+        
       </div>
     </section>
   );

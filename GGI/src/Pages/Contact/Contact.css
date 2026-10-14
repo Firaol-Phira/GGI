@@ -1,0 +1,110 @@
+/* Contact GGI Custom Styles */
+
+/* Utility Classes */
+.bg-offwhite {
+  background-color: #F8F9FA;
+}
+
+.text-navy {
+  color: #0F2C59 !important;
+}
+
+.text-emerald {
+  color: #00A86B !important;
+}
+
+.text-gold {
+  color: #D4AF37 !important;
+}
+
+.bg-navy {
+  background-color: #0F2C59;
+}
+
+.letter-spacing-1 {
+  letter-spacing: 1px;
+}
+
+.max-w-700 {
+  max-width: 700px;
+}
+
+.fs-7 {
+  font-size: 0.85rem;
+}
+
+/* Hero Header */
+.contact-hero {
+  background-color: #0F2C59;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.contact-subtitle-badge {
+  color: #D4AF37;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-left: 3px solid #D4AF37;
+  padding-left: 10px;
+}
+
+/* Contact Info Card */
+.contact-info-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(15, 44, 89, 0.08);
+}
+
+.info-icon-box {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(0, 168, 107, 0.12);
+}
+
+/* Send Message Card & Inputs */
+.send-message-card {
+  border: 1px solid rgba(15, 44, 89, 0.08) !important;
+}
+
+.custom-input {
+  border: 1px solid rgba(15, 44, 89, 0.18);
+  border-radius: 8px;
+  color: #0F2C59;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-input:focus {
+  border-color: #00A86B !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 168, 107, 0.15) !important;
+  outline: none;
+}
+
+/* Buttons & Alerts */
+.btn-navy-gold {
+  background-color: #0F2C59;
+  color: #D4AF37 !important;
+  border: 1px solid #0F2C59;
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-navy-gold:hover {
+  background-color: #D4AF37;
+  color: #0F2C59 !important;
+  border-color: #D4AF37;
+}
+
+.btn-emerald-action {
+  background-color: #00A86B;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-emerald-action:hover {
+  background-color: #0F2C59;
+}
+
+.alert-success-custom {
+  background-color: rgba(0, 168, 107, 0.1);
+  border: 1px solid rgba(0, 168, 107, 0.3);
+}

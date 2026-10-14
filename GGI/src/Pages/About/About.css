@@ -1,0 +1,87 @@
+/* About GGI Custom Styles */
+
+/* Utility & Color Variables */
+.bg-offwhite {
+  background-color: #F8F9FA;
+}
+
+.text-navy {
+  color: #0F2C59 !important;
+}
+
+.text-emerald {
+  color: #00A86B !important;
+}
+
+.text-gold {
+  color: #D4AF37 !important;
+}
+
+.letter-spacing-1 {
+  letter-spacing: 1px;
+}
+
+.max-w-700 {
+  max-width: 700px;
+}
+
+.fs-7 {
+  font-size: 0.85rem;
+}
+
+/* Hero Banner */
+.about-hero {
+  background-color: #0F2C59;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.about-subtitle-badge {
+  color: #D4AF37;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-left: 3px solid #D4AF37;
+  padding-left: 10px;
+}
+
+/* Special Callout Element */
+.callout-green-border {
+  border-left: 4px solid #00A86B;
+}
+
+/* Card Backgrounds */
+.card-emerald-bg {
+    margin-bottom: 20px;
+      border: 1px solid rgba(212, 175, 55, 0.15); /* Gold border accent */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  background-color: #00A86B;
+}
+
+.section-navy-bg {
+  background-color: #0F2C59;
+}
+
+.card-mission {
+  background-color: rgba(0, 168, 107, 0.25);
+  border: 1px solid rgba(0, 168, 107, 0.4) !important;
+}
+
+.card-vision {
+  background-color: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.3) !important;
+}
+
+/* Button CTA */
+.btn-gold {
+  background-color: #D4AF37;
+  color: #0F2C59 !important;
+  border: 1px solid #D4AF37;
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-gold:hover {
+  background-color: #0F2C59;
+  color: #F8F9FA !important;
+  border-color: #0F2C59;
+}

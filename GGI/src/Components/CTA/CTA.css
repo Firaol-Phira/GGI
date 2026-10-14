@@ -1,0 +1,93 @@
+/* Final Home Page CTA Section Custom Styles */
+
+/* Utility Classes */
+.z-index-2 {
+  z-index: 2;
+}
+
+.text-gold {
+  color: #D4AF37 !important;
+}
+
+.max-w-700 {
+  max-width: 700px;
+}
+
+/* Section Background */
+.final-cta-section {
+  background-color: #F8F9FA; /* Extra deep navy base to contrast the inner box */
+}
+
+/* Inner Content Wrapper Box */
+.cta-content-wrapper {
+  background-color: #0F2C59; /* Main GGI Deep Navy */
+  border: 1px solid rgba(212, 175, 55, 0.15); /* Gold border accent */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Subtle Green Circle Decorative Overlay */
+.cta-overlay-accent {
+  width: 400px;
+  height: 400px;
+  background-color: rgba(0, 168, 107, 0.1); /* Emerald Green with low opacity */
+  top: -200px;
+  right: -150px;
+  z-index: 1;
+}
+
+/* Subtitle Tag Accent */
+.cta-subtitle-badge {
+  color: #D4AF37; /* Metallic Gold */
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-left: 3px solid #D4AF37;
+  padding-left: 10px;
+  background-color: rgba(212, 175, 55, 0.1); /* Gold tint */
+}
+
+/* Typography */
+.cta-title {
+  color: #F8F9FA !important; /* Off-White Text */
+  line-height: 1.2;
+}
+
+.cta-lead {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Action Buttons */
+
+/* Gold Filled Button (Sign In) */
+.btn-gold-fill {
+  background-color: #D4AF37;
+  color: #0F2C59 !important;
+  border: 1px solid #D4AF37;
+  transition: all 0.25s ease-in-out;
+  font-size: 1.05rem;
+}
+
+.btn-gold-fill:hover {
+  background-color: #F8F9FA;
+  color: #0F2C59 !important;
+  border-color: #F8F9FA;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(248, 249, 250, 0.15);
+}
+
+/* Outline Button with Emerald Tint (Contact Us) */
+.btn-outline-light-emerald {
+  background-color: transparent;
+  color: #F8F9FA !important;
+  border: 2px solid #00A86B; /* Emerald Green Border */
+  transition: all 0.25s ease-in-out;
+  font-size: 1rem;
+}
+
+.btn-outline-light-emerald:hover {
+  background-color: #00A86B; /* Fills with Emerald on hover */
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 168, 107, 0.2);
+}
