@@ -34,24 +34,27 @@ function MainHeader() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="main-header sticky-top shadow-sm ">
-      <nav className="navbar navbar-expand-lg navbar-light py-3">
+    <header className="main-header sticky-top shadow-sm">
+      <nav className="navbar navbar-expand-lg py-3">
         <div className="container">
           {/* Logo / Brand */}
-          <Link to="/" className="navbar-brand fw-bold fs-3 ">
+          <Link to="/" className="navbar-brand fw-bold fs-3 text-gold">
             GGI
           </Link>
 
-          {/* Mobile Toggle Button */}
+          {/* Mobile Toggle Button with custom icon switch */}
           <button
             type="button"
-            className={`navbar-toggler border-0 ${menuOpen ? "" : "collapsed"}`}
+            className={`navbar-toggler border-0 custom-toggler ${
+              menuOpen ? "is-open" : ""
+            }`}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             aria-controls="navbarNav"
             onClick={() => setMenuOpen((open) => !open)}
           >
-            <span className="navbar-toggler-icon"></span>
+            {/* Swaps between hamburger and X icon */}
+            <i className={`bi ${menuOpen ? "bi-x-lg" : "bi-list"} fs-2`}></i>
           </button>
 
           {/* Navigation Links Collapsible Container */}
@@ -70,8 +73,8 @@ function MainHeader() {
                       to={link.href}
                       className={`nav-link px-3 rounded-pill transition-all ${
                         active
-                          ? "active textlink fw-semibold bg-light"
-                          : "text-dark"
+                          ? "active textlink fw-semibold"
+                          : "text-light-custom"
                       }`}
                       aria-current={active ? "page" : undefined}
                     >
@@ -81,12 +84,9 @@ function MainHeader() {
                 );
               })}
 
-              {/* Optional: Quick CTA Button for Member Portal */}
+              {/* Quick CTA Button for Member Portal */}
               <li className="nav-item ms-lg-3 mt-2 mt-lg-0">
-                <Link
-                  to="/member"
-                  className="btn  rounded-pill px-4 shadow-sm"
-                >
+                <Link to="/member" className="btnm rounded-pill px-4 shadow-sm">
                   Member Portal
                 </Link>
               </li>

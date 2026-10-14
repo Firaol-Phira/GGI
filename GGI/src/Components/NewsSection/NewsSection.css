@@ -1,0 +1,102 @@
+/* News & Announcements Custom Styles */
+
+.news-announcements-section {
+  background-color: #F8F9FA; /* Off-White Background */
+}
+
+/* Subtitle Accent Tag */
+.news-subtitle-badge {
+  color: #D4AF37; /* Metallic Gold */
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-left: 3px solid #D4AF37;
+  padding-left: 10px;
+}
+
+.news-section-title {
+  color: #0F2C59; /* Deep Navy */
+}
+
+/* View All News Top Button */
+.btn-view-all-news {
+  background-color: #0F2C59;
+  color: #F8F9FA !important;
+  border: 1px solid #0F2C59;
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-view-all-news:hover {
+  background-color: #D4AF37;
+  color: #0F2C59 !important;
+  border-color: #D4AF37;
+}
+
+/* Individual News Cards */
+.news-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(15, 44, 89, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(15, 44, 89, 0.1) !important;
+  border-color: #00A86B; /* Emerald Green hover border */
+}
+
+/* Badges */
+.news-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.badge-green {
+  background-color: rgba(0, 168, 107, 0.15);
+  color: #00A86B;
+}
+
+.badge-gold {
+  background-color: rgba(212, 175, 55, 0.2);
+  color: #8C6D00;
+}
+
+.badge-navy {
+  background-color: rgba(15, 44, 89, 0.12);
+  color: #0F2C59;
+}
+
+/* Card Content Typography */
+.text-gold-accent {
+  color: #D4AF37;
+}
+
+.news-timeframe {
+  font-size: 0.825rem;
+}
+
+.news-card-title {
+  color: #0F2C59;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.news-card-summary {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Read Details Link */
+.news-read-more {
+  color: #00A86B;
+  font-size: 0.9rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.news-read-more:hover {
+  color: #0F2C59;
+  transform: translateX(3px);
+}

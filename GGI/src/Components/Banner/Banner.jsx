@@ -23,14 +23,14 @@ const HIGHLIGHTS = [
         <div className="row align-items-center g-5">
           {/* Left: message and buttons */}
           <div className="col-lg-7">
-            <p className="ggi-banner__tag">Welcome to GGI</p>
+            <p className="ggi-banner__tag">Welcome to Goal Gate Institution</p>
 
             <h1 className="ggi-banner__title">
               Growing together, building wealth together
             </h1>
 
             <p className="ggi-banner__text">
-              GGI is a member-owned institute where every contribution is
+              Goal Gate Institution is a member-owned institute where every contribution is
               tracked, every member has a voice, and our success is shared.
             </p>
 

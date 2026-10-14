@@ -1,0 +1,91 @@
+/* Core Pillars Section Styles */
+
+.core-pillars-section {
+  background-color: #F8F9FA; /* Clean Off-White Background */
+}
+
+/* Subtitle Tag Accent (Matches Hero accent bar) */
+.section-subtitle-badge {
+  color: #D4AF37; /* Metallic Gold */
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-left: 3px solid #D4AF37;
+  padding-left: 10px;
+}
+
+/* Heading Typography */
+.section-title {
+  color: #0F2C59; /* Deep Navy */
+}
+
+.section-lead {
+  color: #4A5568;
+}
+
+/* Individual Pillar Cards */
+.pillar-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(15, 44, 89, 0.08) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow: 0 12px 24px rgba(15, 44, 89, 0.12) !important;
+  border-color: #00A86B !important; /* Emerald Green hover border */
+}
+
+/* Pillar Icon Container */
+.pillar-icon-box {
+  width: 56px;
+  height: 56px;
+  background-color: rgba(0, 168, 107, 0.12); /* Subtle Green fill */
+  color: #00A86B; /* Emerald Green Icon */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pillar-card:hover .pillar-icon-box {
+  background-color: #00A86B;
+  color: #FFFFFF;
+}
+
+.pillar-card-title {
+  color: #0F2C59; /* Deep Navy */
+  font-size: 1.25rem;
+}
+
+.pillar-card-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Highlight Green Callout Box (Exact match to Hero Card) */
+.pillar-callout-box {
+  background-color: #00A86B; /* Emerald Green */
+  border-left: 7px solid #D4AF37; /* Gold Left Accent */
+
+}
+
+.callout-tag {
+  color: #D4AF37; /* Gold */
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Action Gold Button */
+.btn-gold-action {
+  background-color: #D4AF37 ;
+  color: #0F2C59 ;
+  border: 1px solid #D4AF37 ;
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-gold-action:hover {
+  background-color: #0F2C59 ;
+  color: #F8F9FA ;
+  border-color: #0F2C59 ;
+}

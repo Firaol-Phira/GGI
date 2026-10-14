@@ -2,7 +2,8 @@
 
 .main-header {
   transition: all 0.3s ease-in-out;
-  background-color:#F8F9FA ;
+  background-color: #F8F9FA;
+  border-bottom: 1px solid rgba(15, 44, 89, 0.08);
 }
 
 .main-header .navbar-brand {
@@ -14,23 +15,71 @@
 
 .main-header .nav-link {
   transition: all 0.2s ease-in-out;
+  color: #0F2C59;
 }
 
+/* Hover state for navigation links */
 .main-header .nav-link:hover {
   color: #0F2C59 !important;
-  background-color: rgba(13, 110, 253, 0.05);
+  background-color: rgba(0, 168, 107, 0.12); /* Soft Emerald Green tint */
   transform: translateY(-1px);
 }
 
-.navbar-brand {color:#1A202C ;}
+/* Active navigation link styling */
 
-.btn{
-    color:#F8F9FA !important ;
-    background-color: #1A202C !important;
+
+/* .main-header .nav-link.active.textlink {
+  background-color: #00A86B !important; 
+  color: #F8F9FA !important;            
+} */
+
+.navbar-brand {
+  color: #0F2C59;
 }
 
-.textlink{
-      color: #0F2C59 !important;
-      background-color: #F8F9FA;
-      
+/* --- Member Portal Button (btnm) --- */
+.btnm {
+  display: inline-block;
+  text-decoration: none;
+  padding: 8px 20px;
+  color: #F8F9FA !important;
+  background-color: #0F2C59; /* Button & Icon: Metallic Gold */
+  font-weight: 600;
+  border: 1px solid #0F2C59;
+  transition: all 0.25s ease-in-out;
+}
+
+.btnm:hover {
+  border: 1px solid #D4AF37;
+  color: #0F2C59 !important;
+  background-color: #D4AF37; /* Main BG: Deep Navy */
+}
+
+/* --- Mobile Menu Toggle Button (Removes outline/border, adds BG change) --- */
+
+.custom-toggler,
+.custom-toggler:focus,
+.custom-toggler:active,
+.custom-toggler:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  color: #0F2C59 !important;
+  background-color: transparent;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Background hover state for mobile menu icon */
+.custom-toggler:hover {
+  background-color: rgba(0, 168, 107, 0.15) !important;
+  color: #00A86B !important;
+}
+
+/* Active / Open state: Background change instead of border */
+.custom-toggler.is-open,
+.custom-toggler:active {
+  background-color: #00A86B !important; /* Emerald Green fill */
+  color: #F8F9FA !important;            /* White icon */
 }
