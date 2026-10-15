@@ -59,7 +59,7 @@ function NewsSection() {
           <div>
             <Link
               to="/news"
-              className="btn btn-view-all-news px-4 py-2 rounded-pill fw-semibold shadow-sm text-decoration-none"
+              className=" btn-view-all-news px-4 py-2 rounded-pill fw-semibold shadow-sm text-decoration-none"
             >
               View All News <i className="bi bi-arrow-right ms-2"></i>
             </Link>

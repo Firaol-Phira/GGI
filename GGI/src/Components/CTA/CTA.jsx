@@ -33,7 +33,7 @@ function CTA() {
               <div className="d-flex flex-wrap justify-content-center gap-3 gap-md-4 cta-actions">
                 {/* Primary CTA: Member Sign In */}
                 <Link
-                  to="/login"
+                  to="/Login"
                   className=" btn-lg btn-gold-fill px-4 py-3 rounded-pill fw-bold text-decoration-none shadow"
                 >
                   <i className="bi bi-box-arrow-in-right me-2 align-middle"></i>

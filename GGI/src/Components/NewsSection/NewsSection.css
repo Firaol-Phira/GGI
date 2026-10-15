@@ -55,17 +55,17 @@
 
 .badge-green {
   background-color: rgba(0, 168, 107, 0.15);
-  color: #00A86B;
+  color: #00A86B !important;
 }
 
 .badge-gold {
   background-color: rgba(212, 175, 55, 0.2);
-  color: #8C6D00;
+  color: #8C6D00 !important;
 }
 
 .badge-navy {
   background-color: rgba(15, 44, 89, 0.12);
-  color: #0F2C59;
+  color: #0F2C59 !important;
 }
 
 /* Card Content Typography */

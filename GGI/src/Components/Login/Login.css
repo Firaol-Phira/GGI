@@ -1,18 +1,18 @@
-
-
 /* Login Page Custom Styles */
 
-/* Page Background with Subtle Radial Gradient Accents */
 .login-page {
   background-color: #0F2C59; /* GGI Deep Navy */
   background-image: 
-    radial-gradient(circle at top right, rgba(0, 168, 107, 0.18), transparent 45%),
-    radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.15), transparent 45%);
+    radial-gradient(circle at top right, rgba(0, 168, 107, 0.15), transparent 45%),
+    radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.12), transparent 45%);
 }
 
-/* Color & Utility Classes */
 .bg-offwhite {
-  background-color: #F8F9FA;
+  background-color: #F8F9FA !important;
+}
+
+.bg-gold {
+  background-color: #D4AF37 !important;
 }
 
 .text-navy {
@@ -35,61 +35,51 @@
   font-size: 0.85rem;
 }
 
-.transition-all {
-  transition: all 0.2s ease-in-out;
-}
-
-/* Auth Card Styling */
+/* Card Styling */
 .login-card {
-  border: 1px solid rgba(212, 175, 55, 0.25) !important;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Tab Toggle Buttons */
-.btn-navy {
-  background-color: #0F2C59;
-  border-color: #0F2C59;
-}
-
-.btn-navy:hover {
-  background-color: #0B2246;
-  border-color: #0B2246;
-}
-
-/* Input Fields & Focus Styles */
+/* Form Controls */
 .custom-input {
   border: 1px solid rgba(15, 44, 89, 0.2);
-  border-radius: 8px;
+  border-radius: 0 8px 8px 0;
   color: #0F2C59;
   font-size: 0.95rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.custom-input:focus {
-  border-color: #00A86B !important;
-  box-shadow: 0 0 0 0.2rem rgba(0, 168, 107, 0.15) !important;
-  outline: none;
-}
-
-/* Password Visibility Toggle Button */
-.custom-password-toggle {
+.input-group .input-group-text {
   border: 1px solid rgba(15, 44, 89, 0.2);
-  border-start-style: none;
-  border-radius: 0 8px 8px 0;
-  color: #6c757d;
-  background-color: #ffffff;
-}
-
-.custom-password-toggle:hover {
-  background-color: #F8F9FA;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
   color: #0F2C59;
 }
 
-/* Primary Action Buttons */
+.custom-input:focus {
+  border-color: #00A86B !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 168, 107, 0.15) !important;
+}
+
+.custom-password-toggle {
+  border: 1px solid rgba(15, 44, 89, 0.2);
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  color: #6c757d;
+}
+
+.custom-password-toggle:hover {
+  color: #0F2C59;
+  background-color: #fff;
+}
+
+/* Primary Button */
 .btn-navy-gold {
   background-color: #0F2C59;
   color: #D4AF37 !important;
   border: 1px solid #0F2C59;
+  border-radius: 8px;
   transition: all 0.25s ease-in-out;
 }
 
@@ -97,19 +87,5 @@
   background-color: #D4AF37;
   color: #0F2C59 !important;
   border-color: #D4AF37;
-  transform: translateY(-1px);
-}
-
-.btn-emerald-action {
-  background-color: #00A86B;
-  color: #FFFFFF !important;
-  border: 1px solid #00A86B;
-  transition: all 0.25s ease-in-out;
-}
-
-.btn-emerald-action:hover {
-  background-color: #0F2C59;
-  color: #F8F9FA !important;
-  border-color: #0F2C59;
   transform: translateY(-1px);
 }

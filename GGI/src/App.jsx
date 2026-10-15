@@ -6,6 +6,9 @@ import Home from "./Pages/Home/Home";
 import MainLayout from "./Layouts/MainLayouts/MainLayout";
 import About from "./Pages/About/About";
 import Contact from "./Pages/Contact/Contact";
+import AuthLayout from "./Layouts/AuthLayouts/AuthLayout";
+import Login from "./Components/Login/Login";
+import Signup from "./Components/SignUp/Signup";
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +17,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
           <Route path="/Contact" element={<Contact />} />
+        </Route>
+
+        <Route element={<AuthLayout />}>
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Signup" element={<Signup />} />
         </Route>
       </Routes>
     </BrowserRouter>

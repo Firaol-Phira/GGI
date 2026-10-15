@@ -1,0 +1,37 @@
+/* Auth Header Custom Styles - Light Theme */
+
+.auth-header {
+  background-color: #FFFFFF !important;
+  border-bottom: 1px solid rgba(15, 44, 89, 0.12) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Brand Navy Color Utility */
+.text-navy {
+  color: #0F2C59 !important;
+}
+
+.fw-extrabold {
+  font-weight: 800;
+}
+
+.tracking-wide {
+  letter-spacing: 1px;
+}
+
+/* Right Home Icon Button */
+.home-icon-btn {
+  width: 42px;
+  height: 42px;
+  background-color: #F8F9FA;
+  border: 1px solid rgba(15, 44, 89, 0.15);
+  transition: all 0.25s ease-in-out;
+}
+
+.home-icon-btn:hover {
+  background-color: #0F2C59;
+  color: #D4AF37 !important; /* Gold Icon on Hover */
+  border-color: #0F2C59;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(15, 44, 89, 0.15);
+}

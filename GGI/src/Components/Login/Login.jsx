@@ -1,385 +1,164 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { useAuth } from "../AuthContext";
-import { API_ENDPOINTS } from "../config/apiConfig";
+import { Link, useNavigate } from "react-router-dom";
+
 import "./Login.css";
 
 function Login() {
-  const navigate = useNavigate();
-  const { login } = useAuth();
-
-  // Mode state: 'login' | 'signup'
-  const [activeTab, setActiveTab] = useState("login");
-
-  // Sign In Form State (Email + Password)
-  const [loginData, setLoginData] = useState({
-    email: "",
-    password: "",
-  });
-
-  // Sign Up Form State (Name + Email + Password)
-  const [signupData, setSignupData] = useState({
-    fullName: "",
-    email: "",
-    password: "",
-  });
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleLoginChange = (e) => {
-    setLoginData({ ...loginData, [e.target.name]: e.target.value });
-    if (errorMessage) setErrorMessage("");
-  };
-
-  const handleSignupChange = (e) => {
-    setSignupData({ ...signupData, [e.target.name]: e.target.value });
-    if (errorMessage) setErrorMessage("");
-  };
-
-  // --- BACKEND-READY SIGN IN SUBMISSION ---
-  const handleLoginSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
-    setErrorMessage("");
+    setError("");
+    setLoading(true);
 
     try {
-      /* 
-        ====================================================
-        FUTURE BACKEND INTEGRATION CODE:
-        ====================================================
-        const response = await fetch(API_ENDPOINTS.LOGIN, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(loginData),
-        });
-        const data = await response.json();
-        if (!response.ok) throw new Error(data.message || "Login failed");
-        login(data.user);
-      */
+      const response = await fetch("http://localhost:5000/api/v1/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
 
-      // Simulated Delay (Remove when connecting real backend API)
-      await new Promise((resolve) => setTimeout(resolve, 800));
-      const emailLower = loginData.email.trim().toLowerCase();
+      const data = await response.json();
 
-      let authenticatedUser;
-      if (emailLower.includes("admin") || emailLower === "board@goalgate.org") {
-        authenticatedUser = {
-          id: "GGI-ADM-001",
-          name: "Board Chairman",
-          email: loginData.email,
-          role: "admin",
-        };
-      } else {
-        authenticatedUser = {
-          id: "GGI-MBR-102",
-          name: "GGI Active Member",
-          email: loginData.email,
-          role: "member",
-        };
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to sign in.");
       }
 
-      login(authenticatedUser);
-      setIsLoading(false);
+      // Save token and user info to localStorage
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
 
-      if (authenticatedUser.role === "admin") {
-        navigate("/admin/gateway");
+      // Redirect based on user role
+      if (data.user.role === "admin") {
+        navigate("/admin-dashboard");
       } else {
-        navigate("/member/dashboard");
+        navigate("/member-dashboard");
       }
     } catch (err) {
-      setIsLoading(false);
-      setErrorMessage(err.message || "Authentication error. Please try again.");
-    }
-  };
-
-  // --- BACKEND-READY SIGN UP SUBMISSION ---
-  const handleSignupSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setErrorMessage("");
-    setSuccessMessage("");
-
-    try {
-      /* 
-        ====================================================
-        FUTURE BACKEND INTEGRATION CODE:
-        ====================================================
-        const response = await fetch(API_ENDPOINTS.REGISTER, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(signupData),
-        });
-        const data = await response.json();
-        if (!response.ok) throw new Error(data.message || "Registration failed");
-      */
-
-      // Simulated Delay (Remove when connecting real backend API)
-      await new Promise((resolve) => setTimeout(resolve, 800));
-      setIsLoading(false);
-      setSuccessMessage(
-        "Account registered successfully! You can now sign in.",
-      );
-      setActiveTab("login"); // Automatically switch back to sign in tab
-    } catch (err) {
-      setIsLoading(false);
-      setErrorMessage(err.message || "Registration failed. Please try again.");
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="login-page min-vh-100 d-flex align-items-center justify-content-center py-5">
-      <div className="container">
+    <div className="login-page min-vh-100 d-flex flex-column">
+    
+
+      {/* Main Form Container */}
+      <div className="container my-auto py-5">
         <div className="row justify-content-center">
           <div className="col-12 col-md-8 col-lg-5">
-            {/* Main Card */}
-            <div className="login-card p-4 p-md-5 rounded-4 shadow-lg bg-white border-0">
-              {/* Header & Logo */}
+            <div className="login-card bg-offwhite p-4 p-md-5 rounded-4 shadow-lg">
+              {/* Form Header */}
               <div className="text-center mb-4">
-                <Link
-                  to="/"
-                  className="text-decoration-none d-inline-block mb-1"
-                >
-                  <span className="fs-2 fw-bold text-navy tracking-wide">
-                    GGI
-                  </span>
-                </Link>
-                <h3 className="fw-bold text-navy mb-1">
-                  {activeTab === "login" ? "Welcome Back" : "Create Account"}
-                </h3>
-                <p className="text-muted fs-6 mb-3">
-                  {activeTab === "login"
-                    ? "Sign in to access your portal space"
-                    : "Register to join Goal Gate Institution"}
-                </p>
-
-                {/* Tab Switcher Buttons */}
-                <div className="p-1 rounded-pill bg-offwhite d-flex gap-1 border border-light-subtle">
-                  <button
-                    onClick={() => {
-                      setActiveTab("login");
-                      setErrorMessage("");
-                      setSuccessMessage("");
-                    }}
-                    className={`btn w-50 rounded-pill fw-bold py-2 fs-7 transition-all ${
-                      activeTab === "login"
-                        ? "btn-navy text-gold shadow-sm"
-                        : "btn-light text-muted"
-                    }`}
-                  >
-                    Sign In
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      setActiveTab("signup");
-                      setErrorMessage("");
-                      setSuccessMessage("");
-                    }}
-                    className={`btn w-50 rounded-pill fw-bold py-2 fs-7 transition-all ${
-                      activeTab === "signup"
-                        ? "btn-navy text-gold shadow-sm"
-                        : "btn-light text-muted"
-                    }`}
-                  >
-                    Sign Up
-                  </button>
+                <div className="badge bg-gold text-navy px-3 py-2 rounded-pill mb-2 fw-bold fs-7 tracking-wide">
+                  GGI SECURE PORTAL
                 </div>
+                <h2 className="text-navy fw-bold mb-1">Welcome Back</h2>
+                <p className="text-muted fs-7">
+                  Sign in to access your member dashboard and contribution
+                  records.
+                </p>
               </div>
 
               {/* Error Alert Display */}
-              {errorMessage && (
-                <div className="alert alert-danger rounded-3 py-2 px-3 fs-7 mb-4 d-flex align-items-center">
-                  <i className="bi bi-exclamation-triangle-fill me-2 fs-6"></i>
-                  <div>{errorMessage}</div>
+              {error && (
+                <div className="alert alert-danger py-2 fs-7 mb-3" role="alert">
+                  <i className="bi bi-exclamation-triangle-fill me-2"></i>
+                  {error}
                 </div>
               )}
 
-              {/* Success Alert Display */}
-              {successMessage && (
-                <div className="alert alert-success rounded-3 py-2 px-3 fs-7 mb-4 d-flex align-items-center">
-                  <i className="bi bi-check-circle-fill me-2 fs-6 text-emerald"></i>
-                  <div>{successMessage}</div>
+              {/* Login Form */}
+              <form onSubmit={handleLogin}>
+                {/* Email Field */}
+                <div className="mb-3">
+                  <label className="form-label text-navy fw-semibold fs-7">
+                    Email Address
+                  </label>
+                  <div className="input-group">
+                    <span className="input-group-text bg-white text-navy border-end-0">
+                      <i className="bi bi-envelope"></i>
+                    </span>
+                    <input
+                      type="email"
+                      className="form-control custom-input border-start-0 ps-0 shadow-none"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
                 </div>
-              )}
 
-              {/* FORM 1: SIGN IN (Email + Password) */}
-              {activeTab === "login" ? (
-                <form
-                  onSubmit={handleLoginSubmit}
-                  className="d-flex flex-column gap-3"
-                >
-                  <div>
-                    <label className="form-label fw-semibold text-navy fs-7 mb-1">
-                      Email Address *
-                    </label>
+                {/* Password Field */}
+                <div className="mb-4">
+                  <label className="form-label text-navy fw-semibold fs-7">
+                    Password
+                  </label>
+                  <div className="input-group">
+                    <span className="input-group-text bg-white text-navy border-end-0">
+                      <i className="bi bi-lock"></i>
+                    </span>
                     <input
-                      type="email"
-                      name="email"
-                      className="form-control custom-input py-2 px-3"
-                      placeholder="name@example.com"
+                      type={showPassword ? "text" : "password"}
+                      className="form-control custom-input border-start-0 border-end-0 ps-0 shadow-none"
+                      placeholder="Enter your password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       required
-                      value={loginData.email}
-                      onChange={handleLoginChange}
                     />
-                  </div>
-
-                  <div>
-                    <div className="d-flex justify-content-between align-items-center mb-1">
-                      <label className="form-label fw-semibold text-navy fs-7 mb-0">
-                        Password *
-                      </label>
-                      <a
-                        href="#forgot"
-                        className="text-emerald fs-7 text-decoration-none fw-semibold"
-                      >
-                        Forgot?
-                      </a>
-                    </div>
-                    <div className="input-group">
-                      <input
-                        type={showPassword ? "text" : "password"}
-                        name="password"
-                        className="form-control custom-input py-2 px-3"
-                        placeholder="Enter password"
-                        required
-                        value={loginData.password}
-                        onChange={handleLoginChange}
-                      />
-                      <button
-                        type="button"
-                        className="btn btn-outline-secondary custom-password-toggle"
-                        onClick={() => setShowPassword(!showPassword)}
-                      >
-                        <i
-                          className={`bi ${showPassword ? "bi-eye-slash-fill" : "bi-eye-fill"}`}
-                        ></i>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="pt-2">
                     <button
-                      type="submit"
-                      disabled={isLoading}
-                      className="btn btn-navy-gold w-100 py-3 rounded-pill fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2"
+                      type="button"
+                      className="btn custom-password-toggle bg-white"
+                      onClick={() => setShowPassword(!showPassword)}
                     >
-                      {isLoading ? (
-                        <>
-                          <span
-                            className="spinner-border spinner-border-sm"
-                            role="status"
-                          ></span>
-                          Signing In...
-                        </>
-                      ) : (
-                        <>
-                          <i className="bi bi-box-arrow-in-right fs-5"></i>
-                          Sign In
-                        </>
-                      )}
+                      <i
+                        className={`bi bi-eye${showPassword ? "-slash" : ""}`}
+                      ></i>
                     </button>
                   </div>
-                </form>
-              ) : (
-                /* FORM 2: SIGN UP (Name + Email + Password) */
-                <form
-                  onSubmit={handleSignupSubmit}
-                  className="d-flex flex-column gap-3"
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="btn btn-navy-gold w-100 py-2.5 fw-semibold shadow-sm mb-3"
+                  disabled={loading}
                 >
-                  <div>
-                    <label className="form-label fw-semibold text-navy fs-7 mb-1">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="fullName"
-                      className="form-control custom-input py-2 px-3"
-                      placeholder="e.g., Abebe Bikila"
-                      required
-                      value={signupData.fullName}
-                      onChange={handleSignupChange}
-                    />
-                  </div>
+                  {loading ? (
+                    <span>
+                      <span
+                        className="spinner-border spinner-border-sm me-2"
+                        role="status"
+                        aria-hidden="true"
+                      ></span>
+                      Authenticating...
+                    </span>
+                  ) : (
+                    "Sign In to Portal"
+                  )}
+                </button>
 
-                  <div>
-                    <label className="form-label fw-semibold text-navy fs-7 mb-1">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      className="form-control custom-input py-2 px-3"
-                      placeholder="name@example.com"
-                      required
-                      value={signupData.email}
-                      onChange={handleSignupChange}
-                    />
-                  </div>
-
-                  <div>
-                    <label className="form-label fw-semibold text-navy fs-7 mb-1">
-                      Password *
-                    </label>
-                    <div className="input-group">
-                      <input
-                        type={showPassword ? "text" : "password"}
-                        name="password"
-                        className="form-control custom-input py-2 px-3"
-                        placeholder="Create password"
-                        required
-                        value={signupData.password}
-                        onChange={handleSignupChange}
-                      />
-                      <button
-                        type="button"
-                        className="btn btn-outline-secondary custom-password-toggle"
-                        onClick={() => setShowPassword(!showPassword)}
-                      >
-                        <i
-                          className={`bi ${showPassword ? "bi-eye-slash-fill" : "bi-eye-fill"}`}
-                        ></i>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      disabled={isLoading}
-                      className="btn btn-emerald-action w-100 py-3 rounded-pill fw-bold text-white shadow-sm d-flex align-items-center justify-content-center gap-2"
+                {/* Registration Switch Link */}
+                <div className="text-center pt-2 border-top border-light">
+                  <p className="fs-7 text-muted mb-0">
+                    Don't have a member account?{" "}
+                    <Link
+                      to="/Signup"
+                      className="text-emerald fw-bold text-decoration-none"
                     >
-                      {isLoading ? (
-                        <>
-                          <span
-                            className="spinner-border spinner-border-sm"
-                            role="status"
-                          ></span>
-                          Creating Account...
-                        </>
-                      ) : (
-                        <>
-                          <i className="bi bi-person-check-fill fs-5"></i>
-                          Create Account
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </form>
-              )}
-
-              {/* Card Footer */}
-              <div className="text-center mt-4 pt-3 border-top border-light-subtle fs-7 text-muted">
-                Need help?{" "}
-                <Link
-                  to="/contact"
-                  className="text-gold fw-bold text-decoration-none ms-1"
-                >
-                  Contact Support
-                </Link>
-              </div>
+                     Sign up
+                    </Link>
+                  </p>
+                </div>
+              </form>
             </div>
           </div>
         </div>

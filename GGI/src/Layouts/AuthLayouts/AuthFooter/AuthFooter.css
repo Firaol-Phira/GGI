@@ -1,0 +1,22 @@
+/* Auth Footer Custom Styles */
+
+.auth-footer {
+  
+  background-color: #081B3C; /* Darker Navy Tone for Footer Base */
+  border-top: 1px solid rgba(212, 175, 55, 0.2); /* Subtle Gold Line */
+  color: #F8F9FA;
+}
+
+/* Typography & Utility Tokens */
+.text-gold {
+  color: #D4AF37 !important;
+}
+
+.text-emerald {
+  color: #00A86B !important;
+}
+
+.fs-8 {
+  font-size: 0.78rem;
+  letter-spacing: 0.3px;
+}
