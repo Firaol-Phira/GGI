@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./MemberDashboard.css";
+import AuthFooter from "../../Layouts/AuthLayouts/AuthFooter/AuthFooter";
 
 function MemberDashboard() {
   const [user, setUser] = useState({ name: "Member", email: "" });
@@ -76,7 +77,7 @@ function MemberDashboard() {
   return (
     <div className="dashboard-page min-vh-100 d-flex flex-column">
       {/* Top Navigation Bar */}
-      <nav className=" dashboard-navbar navbar navbar-expand bg-white border-bottom px-4 py-3 shadow-sm">
+      <nav className="sticky-top dashboard-navbar navbar navbar-expand bg-white border-bottom px-4 py-3 shadow-sm">
         <div className="container-fluid">
           <span className="navbar-brand fw-extrabold text-navy fs-4 tracking-wide">
             GGI <span className="text-gold fw-normal fs-6">Member Portal</span>
@@ -236,7 +237,7 @@ function MemberDashboard() {
                     <th>Amount (ETB)</th>
                     <th>Payment Date</th>
                     <th>CBE Reference</th>
-                    <th>Audit Window</th>
+                    <th>Due Date </th>
                     <th>Status</th>
                     <th>Actions</th>
                   </tr>
@@ -256,13 +257,18 @@ function MemberDashboard() {
                         </span>
                       </td>
                       <td>
-                        <span
-                          className={`badge ${item.is_on_time ? "bg-success-subtle text-success" : "bg-warning-subtle text-warning"} px-2.5 py-1 rounded-pill`}
-                        >
-                          {item.is_on_time
-                            ? "On-Time (1st–5th)"
-                            : "Late Submission"}
-                        </span>
+                        {Number(item.is_on_time) === 1 ||
+                        item.is_on_time === true ? (
+                          <span className="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 rounded-pill fw-semibold fs-8">
+                            <i className="bi bi-clock-check-fill me-1"></i>{" "}
+                            On-Time (1st–5th)
+                          </span>
+                        ) : (
+                          <span className="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-1 rounded-pill fw-semibold fs-8">
+                            <i className="bi bi-clock-history me-1"></i> Late
+                            Submission
+                          </span>
+                        )}
                       </td>
                       <td>
                         <span
@@ -283,9 +289,9 @@ function MemberDashboard() {
                             href={item.receipt_url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn btn-sm btn-outline-primary py-1 px-2 fs-8"
+                            className="btn btn-sm btn-outline-primary px-2 py-1 fs-8"
                           >
-                            <i className="bi bi-eye"></i> View Receipt
+                            <i className="bi bi-eye"></i>
                           </a>
                         ) : (
                           <span className="text-muted fs-8">
@@ -301,6 +307,7 @@ function MemberDashboard() {
           )}
         </div>
       </div>
+      <AuthFooter />
     </div>
   );
 }

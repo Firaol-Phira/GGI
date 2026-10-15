@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 import "./SubmitContribution.css";
+import AuthFooter from "../../Layouts/AuthLayouts/AuthFooter/AuthFooter";
 
 function SubmitContribution() {
   const navigate = useNavigate();
@@ -70,7 +71,7 @@ function SubmitContribution() {
   return (
     <div className="submit-page min-vh-100 d-flex flex-column">
       {/* Navigation Bar */}
-      <nav className="navbar navbar-expand bg-white border-bottom px-4 py-3 shadow-sm">
+      <nav className="sticky-top navbar navbar-expand bg-white border-bottom px-4 py-3 shadow-sm">
         <div className="container-fluid">
           <span className="navbar-brand fw-bold text-navy fs-4">
             GGI <span className="text-gold fs-6 fw-normal">Member Portal</span>
@@ -196,7 +197,7 @@ function SubmitContribution() {
             {/* CBE Digital Receipt Link */}
             <div className="mb-4">
               <label className="form-label fw-bold text-navy fs-7">
-                CBE Receipt Link or Image URL
+                CBE Receipt URL
               </label>
               <input
                 type="url"
@@ -233,7 +234,7 @@ function SubmitContribution() {
           </form>
         </div>
       </div>
-
+      <AuthFooter />
     </div>
   );
 }

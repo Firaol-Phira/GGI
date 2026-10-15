@@ -260,13 +260,14 @@ function About() {
             meetings, and quarterly assembly schedules.
           </p>
           <Link
-            to="/member"
+            to="/MemberDashboard"
             className="btn btn-lg btn-gold px-5 py-3 rounded-pill fw-bold text-decoration-none shadow-sm d-inline-block"
           >
             Access Member Portal
           </Link>
         </div>
       </section>
+      
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { useNavigate ,Link } from "react-router-dom";
 
 
 import "./AdminDashboard.css";
+import AuthFooter from "../../Layouts/AuthLayouts/AuthFooter/AuthFooter";
 
 function AdminDashboard() {
   const [adminUser, setAdminUser] = useState({ name: "Admin", email: "" });
@@ -104,7 +105,7 @@ function AdminDashboard() {
   return (
     <div className="admin-dashboard-page min-vh-100 d-flex flex-column">
       {/* Top Navigation Bar */}
-      <nav className="dashboard-navbar navbar navbar-expand bg-white border-bottom px-4 py-3 shadow-sm">
+      <nav className="sticky-top dashboard-navbar navbar navbar-expand bg-white border-bottom px-4 py-3 shadow-sm">
         <div className="container-fluid">
           <span className="navbar-brand fw-extrabold text-navy fs-4 tracking-wide">
             GGI{" "}
@@ -144,16 +145,71 @@ function AdminDashboard() {
 
       {/* Main Container */}
       <div className="container my-4 flex-grow-1">
-        {/* Admin Header Banner */}
-        <div className="admin-welcome-banner p-4 rounded-4 text-white mb-4 shadow-sm">
-          <span className="badge bg-gold text-navy px-3 py-1.5 rounded-pill fw-bold fs-8 mb-2">
-            AUDIT MANAGEMENT GATEWAY
-          </span>
-          <h1 className="fw-bold fs-3 mb-1">Executive Verification Queue</h1>
-          <p className="text-light opacity-75 fs-7 mb-0">
-            Review member CBE contribution receipts, verify transaction
-            references, and issue official audit approvals.
-          </p>
+        {/* Main Content Layout: Side-by-side on large screens, vertical on mobile */}
+        <div className="row g-4 mb-4">
+          {/* Left Column: Verification Queue Gateway info / Banner */}
+          <div className="col-lg-8">
+            <div className="card shadow-sm border-0 rounded-4 p-4 h-100 bg-navy text-white d-flex flex-column justify-content-center">
+              <span className="badge bg-gold text-navy px-3 py-1 rounded-pill fw-bold fs-8 mb-2 align-self-start">
+                AUDIT MANAGEMENT GATEWAY
+              </span>
+              <h2 className="fw-bold mb-2 text-white">
+                Executive Verification Queue
+              </h2>
+              <p className="text-light opacity-75 fs-7 mb-0">
+                Review member CBE contribution receipts, verify transaction
+                references, and issue official audit approvals.
+              </p>
+            </div>
+          </div>
+          {/* Right Column: Bulletin Board Management & Important Guidelines */}
+          <div className="col-lg-4">
+            <div className="card shadow-sm border-0 rounded-4 p-4 h-100 bg-white border-start border-4 border-gold d-flex flex-column justify-content-between">
+              <div>
+                <div className="d-flex align-items-center gap-2 mb-2">
+                  <i className="bi bi-megaphone-fill text-gold fs-5"></i>
+                  <h5 className="fw-bold text-navy mb-0">Bulletin Board Hub</h5>
+                </div>
+                <p className="text-muted fs-8 mb-3">
+                  Publish institutional rate guidelines, coordinate assembly
+                  notices, and broadcast active meeting links.
+                </p>
+
+                {/* Styled Guidelines List */}
+                <ul className="bullet-guidelines-list">
+                  <li>
+                    <i className="bi bi-check-circle-fill"></i>
+                    <span>
+                      Pin active monthly or yearly contribution rates for
+                      executive review.
+                    </span>
+                  </li>
+                  <li>
+                    <i className="bi bi-check-circle-fill"></i>
+                    <span>
+                      Attach valid Google Meet or Zoom links for upcoming
+                      general assemblies.
+                    </span>
+                  </li>
+                  <li>
+                    <i className="bi bi-check-circle-fill"></i>
+                    <span>
+                      Target announcements specifically to Executive Committee
+                      or all members.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <Link
+                to="/AnnouncementManager"
+                className=" btn-emerald text-white fw-bold rounded-pill px-3 py-2 shadow-sm w-100 mt-2 d-flex align-items-center justify-content-center gap-2"
+              >
+                <span>Manage Bulletin Board</span>
+                <i className="bi bi-arrow-right"></i>
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Notifications */}
@@ -314,6 +370,7 @@ function AdminDashboard() {
           )}
         </div>
       </div>
+      <AuthFooter />
     </div>
   );
 }

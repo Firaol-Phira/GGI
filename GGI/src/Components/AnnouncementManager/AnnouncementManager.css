@@ -1,0 +1,52 @@
+/* AnnouncementManager Component Styles */
+
+.bg-white {
+  background-color: #ffffff !important;
+}
+
+.text-navy {
+  color: #0F2C59 !important;
+}
+
+.text-gold {
+  color: #D4AF37 !important;
+}
+
+.bg-gold {
+  background-color: #D4AF37 !important;
+}
+
+/* Custom Emerald Action Button */
+.btn-emerald {
+  background-color: #00A86B;
+  border-color: #00A86B;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-emerald:hover {
+  background-color: #008f5a;
+  border-color: #008f5a;
+  box-shadow: 0 4px 12px rgba(0, 168, 107, 0.25);
+}
+
+/* Form Controls Custom Focus */
+.form-control:focus, 
+.form-select:focus, 
+.form-check-input:focus {
+  border-color: #00A86B;
+  box-shadow: 0 0 0 0.2rem rgba(0, 168, 107, 0.15);
+}
+
+.form-check-input:checked {
+  background-color: #0F2C59;
+  border-color: #0F2C59;
+}
+
+/* Typography Utilities */
+.fs-7 {
+  font-size: 0.88rem;
+}
+
+.fs-8 {
+  font-size: 0.78rem;
+}

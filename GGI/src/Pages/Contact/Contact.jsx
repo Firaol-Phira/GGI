@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Contact.css";
-
+import { Link } from "react-router-dom";
 function Contact() {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -109,15 +109,17 @@ function Contact() {
                 {/* Direct Telegram / Google Meet Support Card */}
                 <div className="p-3 rounded-3 bg-navy text-white mt-3">
                   <div className="d-flex align-items-center gap-3">
-                    <i className="bi bi-telegram fs-2 text-gold"></i>
-                    <div>
-                      <strong className="d-block text-gold">
-                        Member Telegram Channel
-                      </strong>
-                      <span className="text-light opacity-80 fs-7">
-                        Real-time updates & Google Meet assembly links
-                      </span>
-                    </div>
+                    <Link to="https://t.me/c/2250006026/1" className="Telink">
+                      <i className="bi bi-telegram fs-2 text-gold"></i>
+                      <div>
+                        <strong className="d-block text-gold">
+                          Member Telegram Channel
+                        </strong>
+                        <span className="text-light opacity-80 fs-7">
+                          Real-time updates & Google Meet assembly links
+                        </span>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -165,7 +167,7 @@ function Contact() {
                       {/* Full Name */}
                       <div className="col-md-6">
                         <label className="form-label fw-semibold text-navy fs-7 mb-1">
-                          Full Name 
+                          Full Name
                         </label>
                         <input
                           type="text"
@@ -207,12 +209,8 @@ function Contact() {
                           value={formData.userType}
                           onChange={handleChange}
                         >
-                          <option value="Visitor">
-                            Visitor 
-                          </option>
-                          <option value="Active Member">
-                            Member
-                          </option>
+                          <option value="Visitor">Visitor</option>
+                          <option value="Active Member">Member</option>
                           <option value="Committee Member">
                             Executive Committee
                           </option>
@@ -222,7 +220,7 @@ function Contact() {
                       {/* Subject */}
                       <div className="col-md-6">
                         <label className="form-label fw-semibold text-navy fs-7 mb-1">
-                          Subject 
+                          Subject
                         </label>
                         <input
                           type="text"
@@ -239,7 +237,7 @@ function Contact() {
                     {/* Message */}
                     <div>
                       <label className="form-label fw-semibold text-navy fs-7 mb-1">
-                        Your Message 
+                        Your Message
                       </label>
                       <textarea
                         name="message"

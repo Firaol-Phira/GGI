@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import AuthHeader from "./AuthHeader";
-import AuthFooter from "./AuthFooter";
+import AuthHeader from "../../Layouts/AuthLayouts/AuthHeader/AuthHeader";
+import AuthFooter from "../../Layouts/AuthLayouts/AuthFooter/";
 import "./SubmitContribution.css";
 
 function SubmitContribution() {

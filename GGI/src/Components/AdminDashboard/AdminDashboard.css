@@ -51,3 +51,62 @@
 .audit-section {
   border: 1px solid rgba(15, 44, 89, 0.08);
 }
+/* ===================================================
+   Bulletin Board Hub & Important Guidelines Styling
+   =================================================== */
+
+/* Card Styling */
+.border-gold {
+  border-color: #D4AF37 !important;
+}
+
+/* Guidelines Bullet List */
+.bullet-guidelines-list {
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.bullet-guidelines-list li {
+  font-size: 0.8rem;
+  color: #4A5568;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.35;
+}
+
+.bullet-guidelines-list li i {
+  color: #00A86B; /* Emerald accent */
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Emerald Action Button */
+.btn-emerald {
+    text-decoration: none;
+  background-color: #00A86B;
+  border-color: #00A86B;
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-emerald:hover {
+  background-color: #008F5A;
+  border-color: #008F5A;
+  box-shadow: 0 6px 16px rgba(0, 168, 107, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-emerald:active {
+  transform: translateY(0);
+}
+
+/* Typography Helpers */
+.fs-7 {
+  font-size: 0.88rem;
+}
+
+.fs-8 {
+  font-size: 0.78rem;
+}

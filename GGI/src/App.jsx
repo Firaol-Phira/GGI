@@ -12,6 +12,8 @@ import Signup from "./Components/SignUp/Signup";
 import MemberDashboard from "./Components/MemberDashboard/MemberDashboard";
 import AdminDashboard from "./Components/AdminDashboard/AdminDashboard";
 import SubmitContribution from "./Components/SubmitContribution/SubmitContribution";
+import NewsAndAnnouncements from "./Pages/NewsAndAnnouncement/NewsAndAnnouncements";
+import AnnouncementManager from "./Components/AnnouncementManager/AnnouncementManager";
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +22,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
           <Route path="/Contact" element={<Contact />} />
+          <Route
+            path="/NewsAndAnnouncements"
+            element={<NewsAndAnnouncements />}
+          />
+          <Route
+            path="/AnnouncementManager"
+            element={<AnnouncementManager />}
+          />
         </Route>
         <Route element={<AuthLayout />}>
           <Route path="/Login" element={<Login />} />
