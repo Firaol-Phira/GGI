@@ -86,8 +86,8 @@ function MainHeader() {
 
               {/* Quick CTA Button for Member Portal */}
               <li className="nav-item ms-lg-3 mt-2 mt-lg-0">
-                <Link to="/member" className="btnm rounded-pill px-4 shadow-sm">
-                  Member Portal
+                <Link to="/Login" className="btnm rounded-pill px-4 shadow-sm">
+                Sign in
                 </Link>
               </li>
             </ul>

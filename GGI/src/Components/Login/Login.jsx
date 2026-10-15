@@ -35,9 +35,9 @@ function Login() {
 
       // Redirect based on user role
       if (data.user.role === "admin") {
-        navigate("/admin-dashboard");
+        navigate("/AdminDashboard");
       } else {
-        navigate("/member-dashboard");
+        navigate("/MemberDashboard");
       }
     } catch (err) {
       setError(err.message);

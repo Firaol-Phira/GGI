@@ -1,0 +1,57 @@
+/* Submit Contribution Simplified Styles (No @media queries) */
+
+.submit-page {
+  background-color: #F4F6F9;
+  color: #0F2C59;
+}
+
+.submit-card {
+  max-width: 580px;
+  border: 1px solid rgba(15, 44, 89, 0.08);
+}
+
+.text-navy {
+  color: #0F2C59 !important;
+}
+
+.text-gold {
+  
+  color: #D4AF37 !important;
+}
+
+.bg-gold {
+  background-color: #D4AF37 !important;
+}
+
+.btn-outline-navy {
+    text-decoration: none;
+  border-color: #0F2C59;  background-color: #0F2C59;
+  color: #ffffff;
+}
+
+.btn-outline-navy:hover {
+
+}
+
+.btn-emerald {
+  background-color: #00A86B;
+  border-color: #00A86B;
+}
+
+.btn-emerald:hover {
+  background-color: #008f5a;
+  border-color: #008f5a;
+}
+
+.fs-7 {
+  font-size: 0.88rem;
+}
+
+.fs-8 {
+  font-size: 0.78rem;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #00A86B;
+  box-shadow: 0 0 0 0.15rem rgba(0, 168, 107, 0.15);
+}

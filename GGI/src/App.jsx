@@ -9,6 +9,9 @@ import Contact from "./Pages/Contact/Contact";
 import AuthLayout from "./Layouts/AuthLayouts/AuthLayout";
 import Login from "./Components/Login/Login";
 import Signup from "./Components/SignUp/Signup";
+import MemberDashboard from "./Components/MemberDashboard/MemberDashboard";
+import AdminDashboard from "./Components/AdminDashboard/AdminDashboard";
+import SubmitContribution from "./Components/SubmitContribution/SubmitContribution";
 function App() {
   return (
     <BrowserRouter>
@@ -18,11 +21,13 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/Contact" element={<Contact />} />
         </Route>
-
         <Route element={<AuthLayout />}>
           <Route path="/Login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
-        </Route>
+        </Route>{" "}
+        <Route path="/MemberDashboard" element={<MemberDashboard />} />
+        <Route path="/AdminDashboard" element={<AdminDashboard />} />
+        <Route path="/SubmitContribution" element={<SubmitContribution />} />
       </Routes>
     </BrowserRouter>
   );

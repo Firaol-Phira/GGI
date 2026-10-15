@@ -1,0 +1,143 @@
+/* Member Dashboard Custom Styles */
+
+.dashboard-page {
+  background-color: #F4F6F9; /* Clean light gray-blue background */
+  color: #0F2C59;
+}
+
+/* Navbar */
+.dashboard-navbar {
+  border-bottom: 1px solid rgba(15, 44, 89, 0.1) !important;
+}
+
+.fw-extrabold {
+  font-weight: 800;
+}
+
+.tracking-wide {
+  letter-spacing: 0.5px;
+}
+
+.fs-7 {
+  font-size: 0.88rem;
+}
+
+.fs-8 {
+  font-size: 0.78rem;
+}
+
+/* Welcome Banner */
+.welcome-banner {
+  background: linear-gradient(135deg, #0F2C59 0%, #163B75 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+/* Stat Cards */
+.stat-card {
+  border: 1px solid rgba(15, 44, 89, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 44, 89, 0.08) !important;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.bg-emerald-subtle {
+  background-color: rgba(0, 168, 107, 0.1);
+}
+
+.bg-gold-subtle {
+  background-color: rgba(212, 175, 55, 0.12);
+}
+
+.bg-navy-subtle {
+  background-color: rgba(15, 44, 89, 0.08);
+}
+
+.border-emerald {
+  border-color: #00A86B !important;
+}
+
+.border-gold {
+  border-color: #D4AF37 !important;
+}
+
+.border-navy {
+  border-color: #0F2C59 !important;
+}
+
+.text-emerald {
+  color: #00A86B !important;
+}
+
+.text-gold {
+  color: #D4AF37 !important;
+}
+
+.text-navy {
+  color: #0F2C59 !important;
+}
+
+.bg-emerald {
+  background-color: #00A86B !important;
+}
+
+/* Buttons */
+.btn-gold-navy {
+  background-color: #D4AF37;
+  color: #0F2C59 !important;
+  border: 1px solid #D4AF37;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-gold-navy:hover {
+  background-color: #C19E2E;
+  color: #0F2C59 !important;
+  transform: translateY(-1px);
+}
+
+.btn-navy-gold {
+  background-color: #0F2C59;
+  color: #D4AF37 !important;
+  border: 1px solid #0F2C59;
+  border-radius: 8px;
+}
+
+.btn-navy-gold:hover {
+  background-color: #163B75;
+  color: #D4AF37 !important;
+}
+
+.btn-outline-navy {
+  color: #0F2C59;
+  border-color: #0F2C59;
+  border-radius: 8px;
+}
+
+.btn-outline-navy:hover {
+  background-color: #0F2C59;
+  color: #fff;
+}
+
+/* History Section Table */
+.history-section {
+  border: 1px solid rgba(15, 44, 89, 0.08);
+}
+
+.table th {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background-color: #F8F9FA !important;
+  color: #0F2C59;
+}

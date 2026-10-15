@@ -1,0 +1,53 @@
+/* Admin Dashboard Custom Styles */
+
+.admin-dashboard-page {
+  background-color: #F4F6F9;
+  color: #0F2C59;
+}
+
+.admin-welcome-banner {
+  background: linear-gradient(135deg, #0F2C59 0%, #163B75 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.text-gold {
+  color: #D4AF37 !important;
+}
+
+.text-navy {
+  color: #0F2C59 !important;
+}
+
+.text-emerald {
+  color: #00A86B !important;
+}
+
+.bg-emerald {
+  background-color: #00A86B !important;
+}
+
+.bg-navy {
+  background-color: #0F2C59 !important;
+}
+
+.fs-7 {
+  font-size: 0.88rem;
+}
+
+.fs-8 {
+  font-size: 0.78rem;
+}
+
+.custom-input-note {
+  min-width: 120px;
+  border: 1px solid rgba(15, 44, 89, 0.2);
+}
+
+.custom-input-note:focus {
+  border-color: #00A86B;
+  box-shadow: 0 0 0 0.15rem rgba(0, 168, 107, 0.15);
+}
+
+.audit-section {
+  border: 1px solid rgba(15, 44, 89, 0.08);
+}
