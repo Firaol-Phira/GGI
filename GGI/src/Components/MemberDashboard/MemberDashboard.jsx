@@ -190,7 +190,7 @@ function MemberDashboard() {
           <div className="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-3">
             <div>
               <h4 className="text-navy fw-bold mb-1">
-                Contribution History & Audit Status
+                Contribution History & Finance Status
               </h4>
               <p className="text-muted fs-7 mb-0">
                 Real-time tracking of your submitted CBE payment receipts.
@@ -298,7 +298,7 @@ function MemberDashboard() {
                         item.is_on_time === true ? (
                           <span className="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 rounded-pill fw-semibold fs-8">
                             <i className="bi bi-clock-check-fill me-1"></i>{" "}
-                            On-Time (11th–16th)
+                            On-Time 
                           </span>
                         ) : (
                           <span className="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-1 rounded-pill fw-semibold fs-8">

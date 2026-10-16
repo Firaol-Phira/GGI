@@ -168,7 +168,7 @@ function AdminDashboard() {
               <div>
                 <div className="d-flex align-items-center gap-2 mb-2">
                   <i className="bi bi-megaphone-fill text-gold fs-5"></i>
-                  <h5 className="fw-bold text-navy mb-0">Bulletin Board Hub</h5>
+                  <h5 className="fw-bold text-navy mb-0">Broadcast Center</h5>
                 </div>
                 <p className="text-muted fs-8 mb-3">
                   Publish institutional rate guidelines, coordinate assembly
@@ -192,7 +192,7 @@ function AdminDashboard() {
                 to="/AnnouncementManager"
                 className="btn-emerald text-white fw-bold rounded-pill px-3 py-2 shadow-sm w-100 mt-2 d-flex align-items-center justify-content-center gap-2 text-decoration-none"
               >
-                <span>Manage Bulletin Board</span>
+                <span>Manage Broadcast Center</span>
                 <i className="bi bi-arrow-right"></i>
               </Link>
             </div>

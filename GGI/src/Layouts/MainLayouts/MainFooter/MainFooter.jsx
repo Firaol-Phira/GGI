@@ -24,32 +24,16 @@ function MainFooter() {
               transparency, and collective wealth creation.
             </p>
             <div className="d-flex align-items-center gap-3">
-              <a
-                href="#"
-                className="social-icon-link"
-                aria-label="Tiktok"
-              >
+              <a href="#" className="social-icon-link" aria-label="Tiktok">
                 <i className="bi bi-tiktok"></i>
               </a>
-              <a
-                href="#"
-                className="social-icon-link"
-                aria-label="Telegram"
-              >
+              <a href="#" className="social-icon-link" aria-label="Telegram">
                 <i className="bi bi-telegram"></i>
               </a>
-              <a
-                href="#"
-                className="social-icon-link"
-                aria-label="LinkedIn"
-              >
+              <a href="#" className="social-icon-link" aria-label="LinkedIn">
                 <i className="bi bi-linkedin"></i>
               </a>
-              <a
-                href="#"
-                className="social-icon-link"
-                aria-label="Email"
-              >
+              <a href="#" className="social-icon-link" aria-label="Email">
                 <i className="bi bi-envelope-fill"></i>
               </a>
             </div>
@@ -77,7 +61,7 @@ function MainFooter() {
                 </Link>
               </li>
               <li>
-                <Link to="/News" className="footer-link">
+                <Link to="/NewsAndAnnouncements" className="footer-link">
                   News & Audits
                 </Link>
               </li>
