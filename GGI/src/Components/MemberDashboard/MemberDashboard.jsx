@@ -261,7 +261,8 @@ function MemberDashboard() {
                         item.is_on_time === true ? (
                           <span className="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 rounded-pill fw-semibold fs-8">
                             <i className="bi bi-clock-check-fill me-1"></i>{" "}
-                            On-Time (1st–5th)
+                            On-Time (11th–16th){" "}
+                            {/* <-- UPDATE THIS TEXT LABEL */}
                           </span>
                         ) : (
                           <span className="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-1 rounded-pill fw-semibold fs-8">

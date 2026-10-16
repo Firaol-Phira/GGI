@@ -1,7 +1,18 @@
 .news-page {
   background-color: #F4F6F9;
   color: #0F2C59;
+transform: translate();
 }
+.newse{
+   border: 1px solid rgba(15, 45, 89, 0.37) !important;
+}
+.newse:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(15, 45, 89, 0.249) !important;
+
+  border-color: #00A86B !important; /* Emerald Green hover border */
+}
+
 .badge{
   background-color: #00A86B;
   color: #F4F6F9;
@@ -55,4 +66,36 @@
 
 .style-pre-wrap {
   white-space: pre-wrap;
+}
+.bg-nevy{
+  color: #F8F9FA;
+  background:#0F2C59 ;
+}
+.bg-green {
+  color: #F8F9FA;
+  background: #00A86B ;
+}
+
+.headnew{
+   color: #0F2C59; /* Metallic Gold */
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-left: 3px solid #0F2C59;
+  padding-left: 10px;
+  background-color: rgba(11, 35, 142, 0.138); /* Gold tint */
+}
+
+.pinned-card-navy {
+  background: rgba(15, 23, 42, 0.05) !important; /* Soft 5% Slate Navy Tint */
+  border: 1.5px solid #0F172A !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1) !important;
+  backdrop-filter: blur(4px);
+}
+
+.bordergold{
+  border:  solid #0F2C59 !important;
+}
+.bglight-gold{
+background: rgba(15, 23, 42, 0.05) !important;
 }

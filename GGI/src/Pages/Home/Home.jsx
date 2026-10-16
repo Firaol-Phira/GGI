@@ -1,8 +1,9 @@
 import React from "react";
 import Banner from "../../Components/Banner/Banner";
 import CorePillars from "../../Components/CorePillars/CorePillars";
-import NewsSection from "../../Components/NewsSection/NewsSection";
 import CTA from "../../Components/CTA/CTA.jsx";
+import NewsAndAnnouncements from "../NewsAndAnnouncement/NewsAndAnnouncements.jsx";
+import NewsSection from "../../Components/NewsSection/NewsSection.jsx";
 
 
 function Home() {
@@ -10,7 +11,8 @@ function Home() {
     <div>
   <Banner/>
   <CorePillars/>
-  <NewsSection/>
+  <NewsAndAnnouncements/>
+
   <CTA/>
     </div>
   );
