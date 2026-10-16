@@ -6,13 +6,14 @@ import AuthFooter from "../../Layouts/AuthLayouts/AuthFooter/AuthFooter";
 
 function SubmitContribution() {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    amount: "",
-    paymentDate: new Date().toISOString().split("T")[0],
-    paymentMethod: "CBE (Commercial Bank of Ethiopia)",
-    transactionReference: "",
-    receiptUrl: "",
-  });
+const [formData, setFormData] = useState({
+  amount: "",
+  paymentDate: new Date().toISOString().split("T")[0],
+  paymentType: "monthly", // <--- CHANGE FROM "" TO "monthly"
+  paymentMethod: "CBE (Commercial Bank of Ethiopia)",
+  transactionReference: "",
+  receiptUrl: "",
+});
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -46,6 +47,7 @@ function SubmitContribution() {
           body: JSON.stringify({
             amount: Number(formData.amount),
             paymentDate: formData.paymentDate,
+            paymentType:formData.paymentType,
             paymentMethod: formData.paymentMethod,
             transactionReference: formData.transactionReference,
             receiptUrl: formData.receiptUrl,
@@ -153,6 +155,23 @@ function SubmitContribution() {
                 Submissions made between 1st–5th of the month are logged as{" "}
                 <strong>On-Time</strong>.
               </span>
+            </div>
+            <div className="col-md-6">
+              <label className="form-label fw-bold text-navy fs-7">
+                Payment Type *
+              </label>
+              <select
+                className="form-select"
+                name="paymentType"
+                value={formData.paymentType}
+                onChange={handleChange}
+                required
+              >
+                <option value="monthly">Monthly Contribution</option>
+                <option value="yearly">
+                  Yearly Contribution 
+                </option>
+              </select>
             </div>
 
             {/* Payment Channel */}

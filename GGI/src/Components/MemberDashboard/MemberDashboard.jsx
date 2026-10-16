@@ -6,12 +6,12 @@ import AuthFooter from "../../Layouts/AuthLayouts/AuthFooter/AuthFooter";
 function MemberDashboard() {
   const [user, setUser] = useState({ name: "Member", email: "" });
   const [contributions, setContributions] = useState([]);
+  const [activeTab, setActiveTab] = useState("monthly"); // Tab state: 'monthly' or 'yearly'
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Retrieve stored user details and token
     const storedUser = localStorage.getItem("user");
     const token = localStorage.getItem("token");
 
@@ -24,7 +24,6 @@ function MemberDashboard() {
       setUser(JSON.parse(storedUser));
     }
 
-    // Fetch member contribution history from backend
     fetchMemberHistory(token);
   }, [navigate]);
 
@@ -66,6 +65,12 @@ function MemberDashboard() {
     localStorage.removeItem("user");
     navigate("/login");
   };
+
+  // Filter contributions by tab type
+  const filteredContributions = contributions.filter((c) => {
+    const type = c.payment_type || "monthly"; // fallback if null
+    return type === activeTab;
+  });
 
   // Calculate stats
   const totalContributed = contributions
@@ -151,7 +156,7 @@ function MemberDashboard() {
                     On-Time Submissions
                   </span>
                   <h3 className="text-navy fw-bold mb-0 mt-1">
-                    {onTimeCount} Months
+                    {onTimeCount} Records
                   </h3>
                 </div>
                 <div className="stat-icon bg-gold-subtle text-gold rounded-circle d-flex align-items-center justify-content-center">
@@ -182,7 +187,7 @@ function MemberDashboard() {
 
         {/* Contribution History Section */}
         <div className="history-section bg-white p-4 rounded-4 shadow-sm">
-          <div className="d-flex align-items-center justify-content-between mb-4">
+          <div className="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-3">
             <div>
               <h4 className="text-navy fw-bold mb-1">
                 Contribution History & Audit Status
@@ -198,6 +203,36 @@ function MemberDashboard() {
               + Submit New
             </Link>
           </div>
+
+          {/* Payment Type Tab Switcher */}
+          <ul className="nav nav-pills custom-tabs mb-4 gap-2 border-bottom pb-3">
+            <li className="nav-item">
+              <button
+                className={`nav-link rounded-pill fw-bold px-4 py-2 fs-7 ${
+                  activeTab === "monthly"
+                    ? "bg-navy text-gold shadow-sm"
+                    : "bg-light text-muted"
+                }`}
+                onClick={() => setActiveTab("monthly")}
+              >
+                <i className="bi bi-calendar-month me-1"></i> Monthly
+                Contributions
+              </button>
+            </li>
+            <li className="nav-item">
+              <button
+                className={`nav-link rounded-pill fw-bold px-4 py-2 fs-7 ${
+                  activeTab === "yearly"
+                    ? "bg-navy text-gold shadow-sm"
+                    : "bg-light text-muted"
+                }`}
+                onClick={() => setActiveTab("yearly")}
+              >
+                <i className="bi bi-calendar-check me-1"></i> Yearly / Quarterly
+                Contributions
+              </button>
+            </li>
+          </ul>
 
           {error && (
             <div className="alert alert-danger py-2 fs-7" role="alert">
@@ -215,18 +250,20 @@ function MemberDashboard() {
                 Loading your financial ledger...
               </p>
             </div>
-          ) : contributions.length === 0 ? (
+          ) : filteredContributions.length === 0 ? (
             <div className="text-center py-5 border border-dashed rounded-4 bg-light">
               <i className="bi bi-folder2-open fs-1 text-muted opacity-50"></i>
-              <h5 className="text-navy fw-bold mt-2">No contributions found</h5>
+              <h5 className="text-navy fw-bold mt-2">
+                No {activeTab} contributions found
+              </h5>
               <p className="text-muted fs-7 mb-3">
-                You haven't submitted any payment receipts yet.
+                You haven't submitted any {activeTab} payment receipts yet.
               </p>
               <Link
                 to="/SubmitContribution"
                 className="btn btn-navy-gold btn-sm px-4 fw-semibold"
               >
-                Submit Your First Contribution
+                Submit New Contribution
               </Link>
             </div>
           ) : (
@@ -237,13 +274,13 @@ function MemberDashboard() {
                     <th>Amount (ETB)</th>
                     <th>Payment Date</th>
                     <th>CBE Reference</th>
-                    <th>Due Date </th>
+                    <th>Due Date Window</th>
                     <th>Status</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody className="fs-7">
-                  {contributions.map((item) => (
+                  {filteredContributions.map((item) => (
                     <tr key={item.id}>
                       <td className="fw-bold text-navy">
                         ETB {Number(item.amount).toFixed(2)}
@@ -261,8 +298,7 @@ function MemberDashboard() {
                         item.is_on_time === true ? (
                           <span className="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 rounded-pill fw-semibold fs-8">
                             <i className="bi bi-clock-check-fill me-1"></i>{" "}
-                            On-Time (11th–16th){" "}
-                            {/* <-- UPDATE THIS TEXT LABEL */}
+                            On-Time (11th–16th)
                           </span>
                         ) : (
                           <span className="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-1 rounded-pill fw-semibold fs-8">

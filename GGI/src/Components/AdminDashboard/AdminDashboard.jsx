@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate ,Link } from "react-router-dom";
-
+import { useNavigate, Link } from "react-router-dom";
 
 import "./AdminDashboard.css";
 import AuthFooter from "../../Layouts/AuthLayouts/AuthFooter/AuthFooter";
@@ -8,6 +7,7 @@ import AuthFooter from "../../Layouts/AuthLayouts/AuthFooter/AuthFooter";
 function AdminDashboard() {
   const [adminUser, setAdminUser] = useState({ name: "Admin", email: "" });
   const [contributions, setContributions] = useState([]);
+  const [activeTab, setActiveTab] = useState("monthly"); // Tab state: 'monthly' or 'yearly'
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -25,7 +25,6 @@ function AdminDashboard() {
 
     if (storedUser) {
       const parsedUser = JSON.parse(storedUser);
-      // Optional: Verify if user is admin if role is stored
       setAdminUser(parsedUser);
     }
 
@@ -89,7 +88,6 @@ function AdminDashboard() {
       }
 
       setSuccess(`Contribution successfully ${status}!`);
-      // Refresh list
       fetchAllContributions(token);
     } catch (err) {
       setError(err.message);
@@ -101,6 +99,12 @@ function AdminDashboard() {
     localStorage.removeItem("user");
     navigate("/login");
   };
+
+  // Filter contributions by active tab
+  const filteredContributions = contributions.filter((c) => {
+    const type = c.payment_type || "monthly";
+    return type === activeTab;
+  });
 
   return (
     <div className="admin-dashboard-page min-vh-100 d-flex flex-column">
@@ -122,7 +126,6 @@ function AdminDashboard() {
                 Executive Committee
               </span>
             </div>
-            {/* Inside AdminDashboard.jsx navbar actions */}
             <div className="d-flex align-items-center gap-2">
               <Link
                 to="/MemberDashboard"
@@ -145,9 +148,7 @@ function AdminDashboard() {
 
       {/* Main Container */}
       <div className="container my-4 flex-grow-1">
-        {/* Main Content Layout: Side-by-side on large screens, vertical on mobile */}
         <div className="row g-4 mb-4">
-          {/* Left Column: Verification Queue Gateway info / Banner */}
           <div className="col-lg-8">
             <div className="card shadow-sm border-0 rounded-4 p-4 h-100 bg-navy text-white d-flex flex-column justify-content-center">
               <span className="badge bg-gold text-navy px-3 py-1 rounded-pill fw-bold fs-8 mb-2 align-self-start">
@@ -162,7 +163,6 @@ function AdminDashboard() {
               </p>
             </div>
           </div>
-          {/* Right Column: Bulletin Board Management & Important Guidelines */}
           <div className="col-lg-4">
             <div className="card shadow-sm border-0 rounded-4 p-4 h-100 bg-white border-start border-4 border-gold d-flex flex-column justify-content-between">
               <div>
@@ -174,36 +174,23 @@ function AdminDashboard() {
                   Publish institutional rate guidelines, coordinate assembly
                   notices, and broadcast active meeting links.
                 </p>
-
-                {/* Styled Guidelines List */}
                 <ul className="bullet-guidelines-list">
                   <li>
                     <i className="bi bi-check-circle-fill"></i>
                     <span>
-                      Pin active monthly or yearly contribution rates for
-                      executive review.
+                      Pin active monthly or yearly contribution rates.
                     </span>
                   </li>
                   <li>
                     <i className="bi bi-check-circle-fill"></i>
-                    <span>
-                      Attach valid Google Meet or Zoom links for upcoming
-                      general assemblies.
-                    </span>
-                  </li>
-                  <li>
-                    <i className="bi bi-check-circle-fill"></i>
-                    <span>
-                      Target announcements specifically to Executive Committee
-                      or all members.
-                    </span>
+                    <span>Attach valid Google Meet or Zoom links.</span>
                   </li>
                 </ul>
               </div>
 
               <Link
                 to="/AnnouncementManager"
-                className=" btn-emerald text-white fw-bold rounded-pill px-3 py-2 shadow-sm w-100 mt-2 d-flex align-items-center justify-content-center gap-2"
+                className="btn-emerald text-white fw-bold rounded-pill px-3 py-2 shadow-sm w-100 mt-2 d-flex align-items-center justify-content-center gap-2 text-decoration-none"
               >
                 <span>Manage Bulletin Board</span>
                 <i className="bi bi-arrow-right"></i>
@@ -212,7 +199,6 @@ function AdminDashboard() {
           </div>
         </div>
 
-        {/* Notifications */}
         {error && (
           <div className="alert alert-danger py-2 fs-7 mb-3" role="alert">
             <i className="bi bi-exclamation-triangle-fill me-2"></i>
@@ -229,7 +215,7 @@ function AdminDashboard() {
 
         {/* Audit Table Section */}
         <div className="audit-section bg-white p-4 rounded-4 shadow-sm">
-          <div className="d-flex align-items-center justify-content-between mb-4">
+          <div className="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-3">
             <div>
               <h4 className="text-navy fw-bold mb-1">All Member Submissions</h4>
               <p className="text-muted fs-7 mb-0">
@@ -237,9 +223,38 @@ function AdminDashboard() {
               </p>
             </div>
             <span className="badge bg-navy text-gold px-3 py-2 fs-7 rounded-pill">
-              Total Records: {contributions.length}
+              Total Records: {filteredContributions.length}
             </span>
           </div>
+
+          {/* Payment Type Tab Switcher */}
+          <ul className="nav nav-pills custom-tabs mb-4 gap-2 border-bottom pb-3">
+            <li className="nav-item">
+              <button
+                className={`nav-link rounded-pill fw-bold px-4 py-2 fs-7 ${
+                  activeTab === "monthly"
+                    ? "bg-navy text-gold shadow-sm"
+                    : "bg-light text-muted"
+                }`}
+                onClick={() => setActiveTab("monthly")}
+              >
+                <i className="bi bi-calendar-month me-1"></i> Monthly Queue
+              </button>
+            </li>
+            <li className="nav-item">
+              <button
+                className={`nav-link rounded-pill fw-bold px-4 py-2 fs-7 ${
+                  activeTab === "yearly"
+                    ? "bg-navy text-gold shadow-sm"
+                    : "bg-light text-muted"
+                }`}
+                onClick={() => setActiveTab("yearly")}
+              >
+                <i className="bi bi-calendar-check me-1"></i> Yearly / Quarterly
+                Queue
+              </button>
+            </li>
+          </ul>
 
           {loading ? (
             <div className="text-center py-5">
@@ -250,12 +265,15 @@ function AdminDashboard() {
                 Loading institution audit records...
               </p>
             </div>
-          ) : contributions.length === 0 ? (
+          ) : filteredContributions.length === 0 ? (
             <div className="text-center py-5 border border-dashed rounded-4 bg-light">
               <i className="bi bi-inbox fs-1 text-muted opacity-50"></i>
-              <h5 className="text-navy fw-bold mt-2">Audit Queue is Empty</h5>
+              <h5 className="text-navy fw-bold mt-2">
+                {activeTab === "monthly" ? "Monthly" : "Yearly"} Audit Queue is
+                Empty
+              </h5>
               <p className="text-muted fs-7 mb-0">
-                No contribution submissions have been registered yet.
+                No {activeTab} contribution submissions found in this category.
               </p>
             </div>
           ) : (
@@ -274,7 +292,7 @@ function AdminDashboard() {
                   </tr>
                 </thead>
                 <tbody className="fs-7">
-                  {contributions.map((item) => (
+                  {filteredContributions.map((item) => (
                     <tr key={item.id}>
                       <td>
                         <span className="fw-bold text-navy d-block">
@@ -297,7 +315,11 @@ function AdminDashboard() {
                       </td>
                       <td>
                         <span
-                          className={`badge ${item.is_on_time ? "bg-success-subtle text-success" : "bg-warning-subtle text-warning"} px-2.5 py-1 rounded-pill`}
+                          className={`badge ${
+                            item.is_on_time
+                              ? "bg-success-subtle text-success"
+                              : "bg-warning-subtle text-warning"
+                          } px-2.5 py-1 rounded-pill`}
                         >
                           {item.is_on_time ? "On-Time" : "Late"}
                         </span>
