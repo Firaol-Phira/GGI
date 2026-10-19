@@ -113,7 +113,7 @@ function MemberDashboard() {
             <span className="badge bg-gold text-navy px-3 py-1.5 rounded-pill fw-bold fs-8 mb-2">
               GOAL GATE INSTITUTION
             </span>
-            <h1 className="fw-bold fs-3 mb-1">Welcome back, {user.name}!</h1>
+            <h1 className="fw-bold fs-3 mb-1">Welcome back , {user.name}!</h1>
             <p className="text-light opacity-75 fs-7 mb-3">
               Track your cooperative contributions, verify audit windows, and
               manage CBE payment receipts securely.
@@ -123,7 +123,7 @@ function MemberDashboard() {
               className="btn btn-gold-navy px-4 py-2 fw-bold fs-7 shadow-sm d-inline-flex align-items-center gap-2 text-decoration-none"
             >
               <i className="bi bi-plus-circle-fill"></i>
-              <span>Submit New Contribution</span>
+              <span>Submit New Contributions</span>
             </Link>
           </div>
         </div>
